@@ -11,6 +11,7 @@ The names below are the cross-package surface. Modules:
 - ``runner``: the single subprocess site, the per-firing callback and its failure semantics.
 - ``consent``: the allowlist, the first-use prompt, the opt-in channels, script facts for the CLI.
 - ``registry``: registration on the hook manager, the gateway resync, launch/process opt-ins.
+- ``rewake``: ``async_rewake`` hooks, run in the background, that wake their session on exit 2.
 """
 
 from agent.shell_hooks.consent import (
@@ -34,6 +35,7 @@ from agent.shell_hooks.registry import (
     reset_for_tests,
     sync_from_config,
 )
+from agent.shell_hooks.rewake import cancel_session, stop_all
 from agent.shell_hooks.runner import run_once
 from agent.shell_hooks.spec import DEFAULT_TIMEOUT_SECONDS, MAX_TIMEOUT_SECONDS, ShellHookSpec, iter_configured_hooks
 
@@ -47,6 +49,7 @@ __all__ = [
     "allowlist_entry_for",
     "allowlist_path",
     "allowlisted_pairs",
+    "cancel_session",
     "iter_configured_hooks",
     "load_allowlist",
     "re_register_config_hooks",
@@ -59,5 +62,6 @@ __all__ = [
     "save_allowlist",
     "script_is_executable",
     "script_mtime_iso",
+    "stop_all",
     "sync_from_config",
 ]
